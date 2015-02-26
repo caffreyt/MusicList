@@ -4,10 +4,9 @@ public class MusicLibrary {
   
   private ArrayList<Song> songs;
   private int currentSortField = 0;  // Unsorted
-  private int field = 0;
-  public MusicLibrary(ArrayList<Song> songs) { 
+  public MusicLibrary() { 
     /* YOUR CONSTRUCTOR CODE HERE*/
-    this.songs = songs;
+    this.songs = new ArrayList<Song>();
   }
   
   /* 
@@ -35,7 +34,7 @@ public class MusicLibrary {
    */
   public void Sort ()
   {
-     currentSortField = field;
+     Collections.sort(songs);
   }
   
   /*
@@ -47,6 +46,7 @@ public class MusicLibrary {
   public void Sort (int field)
   {
     currentSortField = field;
+ 
   }
   
   /*

@@ -18,7 +18,20 @@ public class Song implements Comparable<Song>{
     this.notes = notes;
   }
   
- public static Comparator<Song> FruitNameComparator 
+  public int compareTo(Song compareSong) {
+ 
+  
+ 
+  //ascending order
+  return name.compareTo(compareSong.name);
+ 
+  //descending order
+  //return compareQuantity - this.quantity;
+ 
+ }
+  
+  
+ public static Comparator<Song> SongNameComparator 
                           = new Comparator<Song>() {
  
      public int compare(Song song1, Song song2) {
