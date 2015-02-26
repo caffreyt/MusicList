@@ -9,7 +9,7 @@ public class MusicRunner
   
   public static void main (String[] args)
   {
-    ArrayList<Song> Songs = new ArrayList<Song>();
+    MusicLibrary Songs = new MusicLibrary();
     int count = 0;
     MusicReader mr = new MusicReader();
     
@@ -32,7 +32,7 @@ public class MusicRunner
       
       
       // Let's try to create a Song object
-      Song song = new Song(data[0], data[1], Integer.parseInt(fuckyoutanczos(data[3])), Double.parseDouble(fuckyoutanczos(data[4])), data[16]);  // data[0] is the artist and data[1] is the name
+      Song song = new Song(fuckyoutanczos(data[0]), fuckyoutanczos(data[1]), Integer.parseInt(fuckyoutanczos(data[3])), Double.parseDouble(fuckyoutanczos(data[4])), data[16]);  // data[0] is the artist and data[1] is the name
      if(fuckyoutanczos(data[2]).equals("song"))
      {
        Songs.add(song);
@@ -44,10 +44,11 @@ public class MusicRunner
       data = mr.getSongData();  // Get next line of song data
     }
     
+    
     for(int i = Songs.size() - 1; i >=0; i--)
     {
       Song song = Songs.get(i);
-      System.out.println(song.artist + " " + song.name); 
+      System.out.println("Artist: \""+song.artist + "\" Title: \"" + song.name+"\""); 
       
     }
     
