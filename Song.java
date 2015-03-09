@@ -45,8 +45,18 @@ public class Song implements Comparable<Song>{
        //descending order
        //return fruitName2.compareTo(fruitName1);
      }
- 
+     public int compare(Song song1, Song song2, int field) {
+       String songArtist1 = song1.artist.toUpperCase();
+       String songArtist2 = song2.artist.toUpperCase();
+       if(field == 2)
+       {
+         return songArtist1.compareTo(songArtist2);
+       }
+       else
+         return compare(song1,song2);
+     }
  };
+
   /* ADD YOUR CODE HERE */
   
 }
