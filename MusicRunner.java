@@ -32,13 +32,35 @@ public class MusicRunner
       
       
       // Let's try to create a Song object
-      Song song = new Song(fuckyoutanczos(data[0]), fuckyoutanczos(data[1]), Integer.parseInt(fuckyoutanczos(data[3])), Double.parseDouble(fuckyoutanczos(data[4])), data[16]);  // data[0] is the artist and data[1] is the name
+      int year;
+      double score;
+      
+      try 
+      {
+          year = Integer.parseInt(fuckyoutanczos(data[3]));
+      }     
+      catch (Exception e)
+      {
+        year = 0;
+      }
+      
+      try
+      {
+        score = Double.parseDouble(fuckyoutanczos(data[4]));
+      }
+      catch (Exception e)
+      {
+        score = 0;
+      }
+
+      
+      Song song = new Song(fuckyoutanczos(data[0]), fuckyoutanczos(data[1]), year, score, data[16]);  // data[0] is the artist and data[1] is the name
      if(fuckyoutanczos(data[2]).equals("song"))
      {
        Songs.addSong(song);
       count++;
      } 
-      if (count == 20)  // For now only read ONE song
+      if (count == 1000)  // For now only read ONE song
         break;
       
       data = mr.getSongData();  // Get next line of song data
