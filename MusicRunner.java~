@@ -32,50 +32,26 @@ public class MusicRunner
       
       
       // Let's try to create a Song object
-      int year;
-      double score;
-      
-      try 
-      {
-          year = Integer.parseInt(fuckyoutanczos(data[3]));
-      }     
-      catch (Exception e)
-      {
-        year = 0;
-      }
-      
-      try
-      {
-        score = Double.parseDouble(fuckyoutanczos(data[4]));
-      }
-      catch (Exception e)
-      {
-        score = 0;
-      }
-
-      
-      Song song = new Song(fuckyoutanczos(data[0]), fuckyoutanczos(data[1]), year, score, data[16]);  // data[0] is the artist and data[1] is the name
+      Song song = new Song(fuckyoutanczos(data[0]), fuckyoutanczos(data[1]), Integer.parseInt(fuckyoutanczos(data[3])), Double.parseDouble(fuckyoutanczos(data[4])), data[16]);  // data[0] is the artist and data[1] is the name
      if(fuckyoutanczos(data[2]).equals("song"))
      {
-       Songs.addSong(song);
+       Songs.add(song);
       count++;
      } 
-      if (count == 1000)  // For now only read ONE song
+      if (count == 10)  // For now only read ONE song
         break;
       
       data = mr.getSongData();  // Get next line of song data
     }
-    Songs.Sort(2);
     
-    for(int i = 1; i <=Songs.size(); i++)
+    
+    for(int i = Songs.size() - 1; i >=0; i--)
     {
-      Song song = Songs.getSong(i);
+      Song song = Songs.get(i);
       System.out.println("Artist: \""+song.artist + "\" Title: \"" + song.name+"\""); 
       
     }
-    System.out.println("List a number from 0-9");
-    Scanner scanner = new Scanner(System.in);
-    System.out.println(Songs.getSong(scanner.nextInt()).notes);
+    
     mr.close();
   }
 }
