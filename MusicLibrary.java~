@@ -29,6 +29,10 @@ public class MusicLibrary {
       return songs.get(num-1);
   }
   
+  public int size()
+  {
+    return songs.size();
+  }
   /*
    * Sort song list by title
    */
